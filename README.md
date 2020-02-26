@@ -31,5 +31,6 @@ OR launch from IDE
 
 Then visit http://localhost:8080
 
-![]{images/Annotation 2020-02-10 104006.png}
+# Mark-down
+![](images/Annotation 2020-02-10 104006.png)
 
