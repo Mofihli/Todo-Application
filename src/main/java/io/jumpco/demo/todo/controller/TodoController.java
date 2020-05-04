@@ -3,6 +3,8 @@ package io.jumpco.demo.todo.controller;
 import io.jumpco.demo.todo.model.EntityNotFoundException;
 import io.jumpco.demo.todo.model.Todo;
 import io.jumpco.demo.todo.model.TodoService;
+import io.jumpco.demo.todo.model.TodoType;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,6 +33,10 @@ public class TodoController {
         result.addObject("mode", "add");
         result.addObject("modeTitle", "Create");
         result.addObject("todo", new Todo());
+        
+//        dropdown
+        result.addObject("todoType", TodoType.values());
+        
         return result;
     }
 
@@ -39,8 +45,9 @@ public class TodoController {
         Todo item = todoService.find(id);
         ModelAndView result = new ModelAndView("add-edit");
         result.addObject("mode", "update");
-        result.addObject("modeTitle", "Update");
+        result.addObject("modeTitle", "Update");      
         result.addObject("todo", item);
+        result.addObject("todoType", TodoType.values());
         return result;
     }
 

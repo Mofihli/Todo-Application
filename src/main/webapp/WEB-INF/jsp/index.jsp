@@ -19,6 +19,9 @@
 		    <tr>
 		        <td><h1 class="text-primary"><label>Title</label></h1></td>
 		        <td><h1 class="text-primary"><label>Completed</label></h1></td>
+		        
+		        <td><h1 class="text-primary"><label>Type</label></h1></td>
+		
 		        <td><h1 class="text-primary"><label>Action</label></h1></td>
 		    </tr>
 		    </thead>
@@ -31,6 +34,13 @@
 		        <td>
 		            ${todo.completed}
 		        </td>
+		        
+		        <td>
+		            ${todo.type}
+		        </td>
+		        
+		        
+		        
 		        <td>
 		            <a href="${pageContext.request.contextPath}/todo/edit/${todo.id}">Edit</a>
 		            &nbsp;

@@ -1,16 +1,20 @@
 package io.jumpco.demo.todo.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import java.util.StringJoiner;
 
 @Entity
-public class Todo {
+public class Todo{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -28,6 +32,20 @@ public class Todo {
     @Column(name = "order_i")
     @NotNull
     private int order;
+    @Enumerated(EnumType.STRING)
+    @NotNull(message="please select at least one")
+    private TodoType type;
+    
+    
+	public TodoType getType() {
+		return type;
+	}
+
+	public void setType(TodoType type) {
+		this.type = type;
+	}
+
+	
 
     public Long getId() {
         return id;
@@ -95,6 +113,7 @@ public class Todo {
                 .add("description='" + description + "'")
                 .add("completed=" + completed)
                 .add("order=" + order)
+                .add("type='" + type + "'")
                 .toString();
     }
 }
